@@ -436,7 +436,7 @@ MonoBehaviour:
   spaceSize: {x: 10, y: 20}
   mapSize: {x: 0, y: 0}
   squareSize: 0.12
-  linerValue: 0
+  linerValue: 0.5
   meshFilter: {fileID: 1768143705}
 --- !u!4 &2047153548
 Transform:
