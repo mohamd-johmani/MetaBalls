@@ -3,13 +3,10 @@ using UnityEngine;
 public class DebugMesh : MonoBehaviour
 {
     public bool drawMech;
-    public bool drawBoundary;
-
-    Mesh mesh;
 
     void DrawMech()
     {
-        mesh = GetComponent<MeshFilter>().sharedMesh;
+        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
         var vertices = mesh.vertices;
         var triangles = mesh.triangles;
         Gizmos.color = Color.green;
@@ -29,30 +26,9 @@ public class DebugMesh : MonoBehaviour
         }
     }
 
-    void DrawBoundary()
-    {
-        mesh = GetComponent<MeshFilter>().sharedMesh;
-        var vertices = mesh.vertices;
-        var triangles = mesh.triangles;
-        var boundaryPath = EdgeHelpers.FindBoundary(EdgeHelpers.GetEdges(triangles));
-
-        Gizmos.color = Color.red;
-        for (int i = 0; i < boundaryPath.Count; i++)
-        {
-            var t1 = boundaryPath[i].v1;
-            var t2 = boundaryPath[i].v2;
-
-            var v1 = vertices[t1];
-            var v2 = vertices[t2];
-
-            Gizmos.DrawLine(v1, v2);
-        }
-    }
-
+  
     private void OnDrawGizmos()
     {
         if (drawMech) DrawMech();
-        if (drawBoundary) DrawBoundary();
-
     }
 }

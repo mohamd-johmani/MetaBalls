@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using FluidSimulation;
-
+using Newtonsoft.Json.Linq;
+using System;
 
 public class MarcingSquaresWithLinerInterpolation 
 {
@@ -46,7 +46,6 @@ public class MarcingSquaresWithLinerInterpolation
 
                 Gizmos.color = square.bottomLeft.active > linerValue ? Color.green : Color.red;
                 Gizmos.DrawCube(square.bottomLeft.position, Vector2.one * .1f);
-
 
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawSphere(square.centreTop.position, .02f);
@@ -294,12 +293,12 @@ public class MarcingSquaresWithLinerInterpolation
             }
 
         }
-
+        
         Node CalculateCentreNode(ControlNode node0, ControlNode node1,float val0,float val1, EdgeType type)
         {
             if (val0 == val1) return new Node(node0.position);
-         
-            var t = (linerValue - val0) / (val1 - val0);
+
+            var t = (linerValue - val0) / (val1 - val0); // InverseLerp
 
             if (type == EdgeType.Horizontal)
             {
