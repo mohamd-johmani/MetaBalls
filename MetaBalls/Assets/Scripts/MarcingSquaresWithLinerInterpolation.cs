@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using FluidSimulation;
-using Newtonsoft.Json.Linq;
-using System;
+
 
 public class MarcingSquaresWithLinerInterpolation 
 {
-    public static float linerValue = 0.1f;
+    public static float linerValue = 0.0f;
   
    
     private Vector2Int gridDimension;
