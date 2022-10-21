@@ -6,7 +6,7 @@ using System;
 
 public class MarcingSquaresWithLinerInterpolation 
 {
-    public static float linerValue = 0.5f;
+    public static float linerValue = 0f;
   
    
     private Vector2Int gridDimension;
